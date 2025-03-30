@@ -22,12 +22,16 @@ export class BaseComponent implements OnInit {
       subscriber.complete();
     });
 
+    // old way
+    // const observable = Observable.create((observer: any) => {...
+
     observable.subscribe({
       next: (message) => {
         this.messages.push(message);
+        console.log(message);
       },
       complete: () => {
-        console.log('Observable completed');
+        console.log('Observable completed - app-base');
       }
     });
 

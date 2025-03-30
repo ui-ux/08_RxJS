@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestComponent } from './test.component';
+import { DTakeUntilComponent } from './d-take-until.component';
 
-describe('TestComponent', () => {
-  let component: TestComponent;
-  let fixture: ComponentFixture<TestComponent>;
+describe('DTakeUntilComponent', () => {
+  let component: DTakeUntilComponent;
+  let fixture: ComponentFixture<DTakeUntilComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TestComponent]
+      imports: [DTakeUntilComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(DTakeUntilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
