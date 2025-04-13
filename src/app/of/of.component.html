@@ -1,8 +1,28 @@
-<p>of works!</p>
+<h2>Numbers whith Observable</h2>
 <ul>
-  <li *ngIf="numberObservable$ | async as test">{{ test }}</li>
+  <li *ngFor="let num of numbers">
+    {{ num }}
+  </li>
 </ul>
----------------------------------
+
+<h3>Values emitted from of()</h3>
 <ul>
-  <li *ngFor="let number of numbers">{{ number }}</li>
+  <li *ngFor="let val of values">
+    <ng-container *ngIf="isFunction(val); else notFunc">
+      Function: {{ val.name || "anonymous" }}() → {{ val() }}
+    </ng-container>
+
+    <ng-template #notFunc>
+      <ng-container [ngSwitch]="true">
+        <span *ngSwitchCase="val === null">null</span>
+        <span *ngSwitchCase="val === undefined">undefined</span>
+        <span *ngSwitchCase="typeof val === 'string'">String: "{{ val }}"</span>
+        <span *ngSwitchCase="typeof val === 'number'">Number: {{ val }}</span>
+        <span *ngSwitchCase="typeof val === 'boolean'">Boolean: {{ val }}</span>
+        <span *ngSwitchDefault>{{ val | json }}</span>
+      </ng-container>
+    </ng-template>
+  </li>
 </ul>
+
+<!-- https://www.learnrxjs.io/learn-rxjs/operators/creation/of -->
