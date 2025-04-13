@@ -1,0 +1,10 @@
+<p>timer works!</p>
+<div>
+  <h2>Single Delayed Emission</h2>
+  <p>{{ delayed$ | async }}</p>
+
+  <h2>Interval Emission (starts after 2s)</h2>
+  <ul>
+    <li *ngIf="interval$ | async as tick">{{ tick }}</li>
+  </ul>
+</div>

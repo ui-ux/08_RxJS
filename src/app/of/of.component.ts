@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { of, take } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { of, Subject, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'of',
@@ -8,16 +8,17 @@ import { of, take } from 'rxjs';
   imports: [CommonModule],
   templateUrl: './of.component.html',
 })
-export class OfComponent implements OnInit {
+export class OfComponent implements OnInit, OnDestroy {
   public numbers: number[] = [];
   public values: any[] = [];
+
+  private destroy$ = new Subject<void>(); // Subject for managing unsubscription
 
   ngOnInit(): void {
     const numberObservable$ = of(1, 25);
     // const numberObservable$ = of(1, 25).pipe(
     //   take(1) // take only the first value
     // );
-    // creating an Observable with two values
 
     // example 2
     const source$ = of(
@@ -33,7 +34,8 @@ export class OfComponent implements OnInit {
       undefined
     );
 
-    numberObservable$.subscribe({
+    // Subscribe to numberObservable$ and use takeUntil to handle unsubscription
+    numberObservable$.pipe(takeUntil(this.destroy$)).subscribe({
       next: (number) => {
         console.log('Number received:', number);
         this.numbers.push(number);
@@ -43,11 +45,17 @@ export class OfComponent implements OnInit {
       },
     });
 
-    // example 2
-    source$.subscribe((val) => {
+    // Subscribe to source$ and use takeUntil to handle unsubscription
+    source$.pipe(takeUntil(this.destroy$)).subscribe((val) => {
       console.log('Value received:', val);
       this.values.push(val);
     });
+  }
+
+  ngOnDestroy(): void {
+    // Trigger unsubscription for all observables
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   isFunction(val: any): val is Function {

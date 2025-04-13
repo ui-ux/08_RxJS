@@ -1,0 +1,19 @@
+<p>interval works!</p>
+<div>
+  <h2>Simple Counter</h2>
+  <!-- Displays the simple counter every second -->
+  <p>{{ numbers$ | async }}</p>
+
+  <h2>Countdown</h2>
+  <!-- Displays countdown values from 10 to 1 -->
+  <p>{{ countdown$ | async }}</p>
+
+  <h2>Color Animation</h2>
+  <!-- Displays color change every second -->
+  <div
+    [style.background]="color$ | async"
+    style="width: 100px; height: 100px; transition: background 0.5s"
+  ></div>
+</div>
+
+<!-- https://www.learnrxjs.io/learn-rxjs/operators/creation/interval -->

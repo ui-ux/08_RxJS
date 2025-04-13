@@ -1,0 +1,22 @@
+<p><b>from</b> works!</p>
+<div>
+  <h2>From Array</h2>
+  <ul>
+    <li *ngFor="let num of fromArray">{{ num }}</li>
+  </ul>
+
+  <h2>From Promise</h2>
+  <p>{{ fromPromise }}</p>
+
+  <h2>From Map</h2>
+  <ul>
+    <li *ngFor="let entry of fromMap">{{ entry[0] }}: {{ entry[1] }}</li>
+  </ul>
+
+  <h2>From String</h2>
+  <ul>
+    <li *ngFor="let char of fromString">{{ char }}</li>
+  </ul>
+</div>
+
+<!-- https://www.learnrxjs.io/learn-rxjs/operators/creation/from -->
