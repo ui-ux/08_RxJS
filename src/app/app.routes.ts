@@ -33,6 +33,10 @@ import { ThrottleTimeComponent } from './Flow-Control-Operators/throttle-time/th
 import { DelayComponent } from './Flow-Control-Operators/delay/delay.component';
 import { BufferComponent } from './Flow-Control-Operators/buffer/buffer.component';
 import { TimeoutComponent } from './Flow-Control-Operators/timeout/timeout.component';
+import { SubjectComponent } from './Subject-Types/subject/subject.component';
+import { BehaviorSubjectComponent } from './Subject-Types/behavior-subject/behavior-subject.component';
+import { ReplaySubjectComponent } from './Subject-Types/replay-subject/replay-subject.component';
+import { AsyncSubjectComponent } from './Subject-Types/async-subject/async-subject.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'base', pathMatch: 'full' },
@@ -70,4 +74,8 @@ export const routes: Routes = [
   { path: 'delay', component: DelayComponent },
   { path: 'buffer', component: BufferComponent },
   { path: 'timeout', component: TimeoutComponent },
+  { path: 'subject', component: SubjectComponent },
+  { path: 'behavior-subject', component: BehaviorSubjectComponent },
+  { path: 'replay-subject', component: ReplaySubjectComponent },
+  { path: 'async-subject', component: AsyncSubjectComponent },
 ];
