@@ -29,6 +29,10 @@ import { TakeUntilComponent } from './Filtration-operators/take-until-all/take-u
 import { SkipComponent } from './Filtration-operators/skip/skip.component';
 import { DebounceTimeComponent } from './Filtration-operators/debounce-time/debounce-time.component';
 import { DistinctUntilChangedComponent } from './Filtration-operators/distinct-until-changed/distinct-until-changed.component';
+import { ThrottleTimeComponent } from './Flow-Control-Operators/throttle-time/throttle-time.component';
+import { DelayComponent } from './Flow-Control-Operators/delay/delay.component';
+import { BufferComponent } from './Flow-Control-Operators/buffer/buffer.component';
+import { TimeoutComponent } from './Flow-Control-Operators/timeout/timeout.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'base', pathMatch: 'full' },
@@ -62,4 +66,8 @@ export const routes: Routes = [
   { path: 'skip', component: SkipComponent },
   { path: 'debounce-time', component: DebounceTimeComponent },
   { path: 'distinct-until-changed', component: DistinctUntilChangedComponent },
+  { path: 'throttle-time', component: ThrottleTimeComponent },
+  { path: 'delay', component: DelayComponent },
+  { path: 'buffer', component: BufferComponent },
+  { path: 'timeout', component: TimeoutComponent },
 ];
