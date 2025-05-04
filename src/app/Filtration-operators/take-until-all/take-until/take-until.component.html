@@ -1,0 +1,22 @@
+<p>take-until works!</p>
+
+<pre>
+| Оператор                 | Що робить                | Типова мета                    |
+| ------------------------ | ------------------------ | ------------------------------ |
+| `take(n)`                | Беремо лише `n` перших   | Обмежити кількість значень     |
+| `takeUntil(trigger$)`    | Відписка при події       | Автоматична відписка           |
+| `skip(n)`                | Пропустити `n` перших    | Пропустити початкові значення  |
+| `debounceTime(ms)`       | Чекає тишу перед емісією | Фільтрація "шуму", напр., ввід |
+| `distinctUntilChanged()` | Пропускає дублікати      | Уникнути зайвих реакцій        |
+</pre>
+
+<h3>takeUntil(stop$)</h3>
+<ul>
+  <li *ngFor="let v of values">{{ v }}</li>
+</ul>
+
+<a href="https://rxmarbles.com/#takeUntil">rxmarbles.com/#takeUntil</a>
+<br /><br />
+<div>
+  <img src="/assets/img/take-until.png" alt="take-until" />
+</div>
