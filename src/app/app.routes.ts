@@ -11,11 +11,22 @@ import { From2Component } from './from-2/from-2.component';
 import { IntervalComponent } from './interval/interval.component';
 import { TimerComponent } from './timer/timer.component';
 import { FromEventComponent } from './from-event/from-event.component';
+import { COnDestroy2Component } from './c-on-destroy-2/c-on-destroy-2.component';
+import { CatchErorComponent } from './catch-eror/catch-eror.component';
+import { RetryComponent } from './retry/retry.component';
+import { MapComponent } from './map/map.component';
+import { FilterComponent } from './filter/filter.component';
+import { ScanComponent } from './scan/scan.component';
+import { MergeMapComponent } from './merge-map/merge-map.component';
+import { SwitchMapComponent } from './switch-map/switch-map.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'base', pathMatch: 'full' },
   { path: 'base', component: BaseComponent },
   { path: 'on-destroy', component: COnDestroyComponent },
+  { path: 'on-destroy-2', component: COnDestroy2Component },
+  { path: 'catch-eror', component: CatchErorComponent },
+  { path: 'retry', component: RetryComponent },
   { path: 'take-until', component: DTakeUntilComponent },
   { path: 'number-observable', component: A11NumberObservableComponent },
   { path: 'api-request-service', component: ApiRequestServiceComponent },
@@ -26,4 +37,9 @@ export const routes: Routes = [
   { path: 'interval', component: IntervalComponent },
   { path: 'timer', component: TimerComponent },
   { path: 'fromEvent', component: FromEventComponent },
+  { path: 'map', component: MapComponent },
+  { path: 'filter', component: FilterComponent },
+  { path: 'scan', component: ScanComponent },
+  { path: 'merge-map', component: MergeMapComponent },
+  { path: 'switch-map', component: SwitchMapComponent },
 ];

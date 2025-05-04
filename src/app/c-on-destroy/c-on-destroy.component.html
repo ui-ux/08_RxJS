@@ -1,1 +1,127 @@
 <p>c-on-destroy works!</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>RxJS оператор / джерело</th>
+      <th>Тип</th>
+      <th>Завершується самостійно?</th>
+      <th>Потрібна відписка?</th>
+      <th>Коментар</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>of(...)</code></td>
+      <td>Cold Observable</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Видає значення і завершується одразу</td>
+    </tr>
+    <tr>
+      <td><code>from([...])</code></td>
+      <td>Cold Observable</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Перетворює масив у Observable, одразу завершується</td>
+    </tr>
+    <tr>
+      <td><code>from(Promise)</code></td>
+      <td>Cold Observable</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Після завершення Promise – завершення Observable</td>
+    </tr>
+    <tr>
+      <td><code>interval()</code></td>
+      <td>Hot Observable</td>
+      <td>❌ Ні</td>
+      <td>✅ Так</td>
+      <td>Нескінченний стрім — треба вручну відписатись</td>
+    </tr>
+    <tr>
+      <td><code>timer()</code></td>
+      <td>Hot / Cold</td>
+      <td>❌ / ✅</td>
+      <td>✅ / ❌</td>
+      <td>Залежить від конфігурації (одноразово чи з повторенням)</td>
+    </tr>
+    <tr>
+      <td><code>fromEvent()</code></td>
+      <td>Hot Observable</td>
+      <td>❌ Ні</td>
+      <td>✅ Так</td>
+      <td>Слухає події безкінечно — треба вручну знищити</td>
+    </tr>
+    <tr>
+      <td><code>HttpClient.get()</code> (Angular)</td>
+      <td>Cold Observable</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Завершується автоматично після відповіді</td>
+    </tr>
+    <tr>
+      <td><code>Subject / BehaviorSubject</code></td>
+      <td>Hot Observable</td>
+      <td>❌ Ні (поки не <code>.complete()</code>)</td>
+      <td>✅ Так</td>
+      <td>Поки не викличете <code>complete()</code> — стрім активний</td>
+    </tr>
+    <tr>
+      <td><code>ReplaySubject</code></td>
+      <td>Hot Observable</td>
+      <td>❌ Ні</td>
+      <td>✅ Так</td>
+      <td>Зберігає останні значення для нових підписників</td>
+    </tr>
+    <tr>
+      <td><code>AsyncSubject</code></td>
+      <td>Hot Observable</td>
+      <td>✅ Так (після <code>complete()</code>)</td>
+      <td>❌ / ✅</td>
+      <td>Видає одне останнє значення при <code>complete()</code></td>
+    </tr>
+    <tr>
+      <td><code>WebSocketSubject</code></td>
+      <td>Hot Observable</td>
+      <td>❌ Ні</td>
+      <td>✅ Так</td>
+      <td>Працює як сокет — тримає підключення відкритим</td>
+    </tr>
+    <tr>
+      <td><code>Subscription</code></td>
+      <td>Тип об'єкта</td>
+      <td>❌ Ні</td>
+      <td>✅ Так</td>
+      <td>Потрібно викликати <code>unsubscribe()</code> вручну</td>
+    </tr>
+    <tr>
+      <td><code>takeUntil(...)</code></td>
+      <td>RxJS оператор</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Автоматично завершує підписку, коли емітить notifier</td>
+    </tr>
+    <tr>
+      <td><code>take(1)</code></td>
+      <td>RxJS оператор</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Завершує Observable після першого значення</td>
+    </tr>
+    <tr>
+      <td><code>first()</code></td>
+      <td>RxJS оператор</td>
+      <td>✅ Так</td>
+      <td>❌ Ні</td>
+      <td>Завершується після першого значення</td>
+    </tr>
+    <tr>
+      <td><code>takeWhile()</code></td>
+      <td>RxJS оператор</td>
+      <td>✅ Так (умовно)</td>
+      <td>❌ Ні</td>
+      <td>Завершується поки умова true, далі — завершення</td>
+    </tr>
+  </tbody>
+</table>

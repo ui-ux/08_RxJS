@@ -1,0 +1,21 @@
+<p>switch-map works!</p>
+<!-- search.component.html -->
+<div class="search-container">
+  <input
+    id="search-input"
+    type="text"
+    placeholder="Пошук користувачів..."
+    class="search-input"
+  />
+  <div *ngIf="searchResults && searchResults.length > 0" class="search-results">
+    <ul>
+      <li *ngFor="let user of searchResults">
+        <p>{{ user.name }}</p>
+        <p>{{ user.email }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!searchResults || searchResults.length === 0" class="no-results">
+    <p>Немає результатів для цього запиту.</p>
+  </div>
+</div>
